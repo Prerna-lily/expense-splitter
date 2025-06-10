@@ -88,9 +88,12 @@ The system calculates settlements using the following logic:
 
 ## Testing
 
-1. Import the Postman collection from:
-   - [Gist URL](https://gist.github.com/your-gist-id)
-   - [Raw JSON URL](https://gist.githubusercontent.com/your-gist-id/raw/expense_splitter_api_collection.json)
+1. After deployment to Render:
+   - Get your Render URL (e.g., `https://expense-splitter.onrender.com`)
+   - Import the Postman collection from:
+     - [Gist URL](https://gist.github.com/your-gist-id)
+     - [Raw JSON URL](https://gist.githubusercontent.com/your-gist-id/raw/expense_splitter_api_collection.json)
+   - Update the collection's base URL to your Render URL
 
 2. The collection includes pre-populated test data with:
    - Sample people: Shantanu, Sanket, Om
@@ -100,24 +103,27 @@ The system calculates settlements using the following logic:
 
 ## Deployment
 
-1. Deploy to Railway.app:
-   - Create a new project
-   - Link your GitHub repository
-   - Configure environment variables:
-     - `DATABASE_URL`: PostgreSQL connection string
-     - `PORT`: 8000
-   - Deploy with Railway CLI:
-   ```bash
-   railway up
-   ```
+1. Deploy to Render.com:
+   1. Go to https://render.com/
+   2. Sign up with your GitHub account
+   3. Click "New +"
+   4. Select "Web Service"
+   5. Connect to your GitHub repository: https://github.com/Prerna-lily/expense-splitter
+   6. Configure the service:
+      - Build Command: `pip install -r requirements.txt`
+      - Start Command: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+      - Environment Variables:
+        - `DATABASE_URL`: Render will automatically set this up
+        - `PORT`: 8000
+      - Auto Deploy: Enable
+   7. Click "Create Web Service"
 
-2. Deploy to Render.com:
-   - Create a new web service
-   - Link your GitHub repository
-   - Configure environment variables:
-     - `DATABASE_URL`: PostgreSQL connection string
-     - `PORT`: 8000
-   - Set up automatic deployments
+2. After deployment:
+   1. Render will provide you with a URL like: `https://expense-splitter.onrender.com`
+   2. The API will be available at: `https://expense-splitter.onrender.com/api/v1`
+   3. Import the Postman collection from:
+      - [Gist URL](https://gist.github.com/your-gist-id)
+      - [Raw JSON URL](https://gist.githubusercontent.com/your-gist-id/raw/expense_splitter_api_collection.json)
 
 ## Known Limitations
 

@@ -3,7 +3,8 @@ import os
 from datetime import datetime
 
 # Base URL for the API (update this when deploying)
-BASE_URL = "http://localhost:8000/api/v1"
+# Update this with your Render deployment URL
+BASE_URL = "https://expense-splitter.onrender.com/api/v1"
 
 # Sample data
 test_people = ["Shantanu", "Sanket", "Om"]
